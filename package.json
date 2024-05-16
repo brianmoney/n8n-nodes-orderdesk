@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "n8n node to call OrderDesk API",
   "keywords": [
-    "n8n-community-node-package"
+    "n8n-community-node-package", "orderdesk"
   ],
   "license": "MIT",
   "homepage": "https://aspereo.com",
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/brianmoney/n8n-nodes-orderdesk.git"
+    "url": "git+https://github.com/brianmoney/n8n-nodes-orderdesk.git"
   },
   "main": "index.js",
   "scripts": {
