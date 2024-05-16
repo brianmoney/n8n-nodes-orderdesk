@@ -1,0 +1,18 @@
+{
+	"node": "n8n-nodes-base.OrderDesk",
+	"nodeVersion": "1.0",
+	"codexVersion": "1.0",
+	"categories": ["Sales","Miscellaneous"],
+	"resources": {
+		"credentialDocumentation": [
+			{
+				"url": "https://apidocs.orderdesk.com/#authentication"
+			}
+		],
+		"primaryDocumentation": [
+			{
+				"url": "https://apidocs.orderdesk.com/"
+			}
+		]
+	}
+}

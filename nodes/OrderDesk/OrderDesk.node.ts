@@ -1,28 +1,32 @@
 import { INodeType, INodeTypeDescription } from 'n8n-workflow';
-import { httpVerbFields, httpVerbOperations } from './HttpVerbDescription';
+import { orderDeskVerbFields, orderDeskVerbOperations } from './OrderDeskVerbDescription';
 
-export class HttpBin implements INodeType {
+export class OrderDesk implements INodeType {
 	description: INodeTypeDescription = {
-		displayName: 'HttpBin',
-		name: 'httpBin',
-		icon: 'file:httpbin.svg',
+		displayName: 'OrderDesk',
+		name: 'OrderDesk',
+		icon: 'file:orderdesk.svg',
 		group: ['transform'],
 		version: 1,
 		subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',
-		description: 'Interact with HttpBin API',
+		description: 'Interact with OrderDesk API',
 		defaults: {
-			name: 'HttpBin',
+			name: 'OrderDesk',
 		},
 		inputs: ['main'],
 		outputs: ['main'],
 		credentials: [
 			{
-				name: 'httpbinApi',
-				required: false,
+				name: 'OrderDesk',
+				required: true,
 			},
 		],
 		requestDefaults: {
-			baseURL: 'https://httpbin.org',
+			baseURL: 'https://app.orderdesk.me',
+			/**
+			 * TESTING
+			 */
+			//baseURL: 'https://webhook.site/4ba31e26-a47b-4b5f-8ae2-7575f594f215',
 			url: '',
 			headers: {
 				Accept: 'application/json',
@@ -48,15 +52,32 @@ export class HttpBin implements INodeType {
 				noDataExpression: true,
 				options: [
 					{
-						name: 'HTTP Verb',
-						value: 'httpVerb',
+						name: 'Orders',
+						value: 'orders',
+					},
+					{
+						name: 'Shipments',
+						value: 'shipments',
+					},
+					{
+						name: 'Inventory Items',
+						value: 'inventory',
+					},
+					{
+						name: 'Move Orders',
+						value: 'moveOrders',
+					},
+					{
+						name: "Store Settings",
+						value: 'storeSettings',
 					},
 				],
-				default: 'httpVerb',
+				default: 'orders',
 			},
-
-			...httpVerbOperations,
-			...httpVerbFields,
+			...orderDeskVerbOperations,
+			...orderDeskVerbFields,
 		],
+
 	};
+
 }
